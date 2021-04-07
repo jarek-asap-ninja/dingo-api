@@ -14,7 +14,7 @@
     }],
     "require": {
         "php": ">=7.2.5",
-        "dingo/blueprint": "^0.4",
+        "dingo/blueprint": "dev-php8",
         "illuminate/routing": "^7.0|^8.0",
         "illuminate/support": "^7.0|^8.0",
         "league/fractal": "^0.19"
@@ -36,6 +36,12 @@
         "squizlabs/php_codesniffer": "~2.0",
         "tymon/jwt-auth": "1.0.*"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jarek-asap-ninja/dingo-blueprint"
+        }
+    ],
     "suggest": {
         "tymon/jwt-auth": "Protect your API with JSON Web Tokens."
     },
