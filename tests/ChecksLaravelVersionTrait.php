@@ -17,15 +17,15 @@ trait ChecksLaravelVersionTrait
         $contents = file_get_contents($this->installed_file_path);
         $parsed_data = json_decode($contents, true);
         $just_laravel = array_filter($parsed_data, function ($val) {
-            if ('laravel/framework' === $val['name'] || 'laravel/lumen-framework' === $val['name']) {
+            if (isset($val['name']) &&('laravel/framework' === $val['name'] || 'laravel/lumen-framework' === $val['name'])) {
                 return true;
             }
         });
         $laravelVersion = array_map(function ($val) {
             return $val['version'];
-        }, array_values($just_laravel))[0];
+        }, array_values($just_laravel));
 
-        return $laravelVersion;
+        return count($laravelVersion) ? $laravelVersion[0] : null;
     }
 
     private function getApplicationStub()
